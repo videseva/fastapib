@@ -17,10 +17,10 @@ user = APIRouter()
 key = Fernet.generate_key()
 f = Fernet(key)
 
-s3 = boto3.client('s3', region_name='us-east-2',  aws_access_key_id='', aws_secret_access_key='')
+s3 = boto3.client('s3')
 
 
-bucket_name = ''
+bucket_name = 'tallercloud-nuestrobucket'
 
 @user.post("/upload-image", tags=["users"], description="Cargar una imagen en S3")
 async def upload_image(file: UploadFile):
